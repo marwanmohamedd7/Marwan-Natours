@@ -10,6 +10,7 @@
   background-size: cover;
   background-position: top;
   /* polygon(x y, x y, x y, x y) position of all corners*/
+  -webkit-clip-path: polygon(0 0, 100% 0, /* 100% 80%, */ 100% 75dvh, 0 100%);
   clip-path: polygon(0 0, 100% 0, /* 100% 80%, */ 100% 75dvh, 0 100%);
 
   &__logo-box {
