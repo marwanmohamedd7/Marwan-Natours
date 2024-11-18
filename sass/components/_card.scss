@@ -10,7 +10,7 @@
   &__side {
     width: 100%;
     height: 52rem;
-    border-radius: 0.3rem;
+    border-radius: $border-radius-sm;
     overflow: hidden;
     box-shadow: $box-shadow-sm;
     transition: all 0.8s ease;
