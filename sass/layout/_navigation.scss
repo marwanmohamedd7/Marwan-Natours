@@ -162,3 +162,62 @@
     }
   }
 }
+
+// Another optimized code verision of the navigation icon implemention
+// ICON
+&__icon {
+  position: relative;
+  // margin-top: 3.5rem;
+
+  &,
+  &::after,
+  &::before {
+    content: "";
+    width: 3rem;
+    height: 2px;
+    display: inline-block;
+    background-color: $color-grey-dark-3;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s;
+  }
+
+  &::before {
+    top: -0.6rem;
+  }
+
+  &::after {
+    top: 0.8rem;
+  }
+}
+
+&__button:hover &__icon {
+  &::before {
+    top: -0.8rem;
+  }
+
+  &::after {
+    top: 1rem;
+  }
+}
+
+&__checkbox:checked + &__button &__icon {
+  & {
+    background-color: transparent;
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &::after {
+    left: 0;
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}
