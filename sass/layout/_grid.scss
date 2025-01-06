@@ -1,9 +1,18 @@
 .row {
-  max-width: $grid-width;
   margin: 0 auto;
+  max-width: $grid-width;
 
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  @include respond(tab-port) {
+    padding: 0 2rem;
+    max-width: $grid-width-small;
   }
 
   @include clearfix;
@@ -11,12 +20,21 @@
   // ^ : it will select all the class attribute start with "col-"
   // * : it will select any classes which contain this part "col-"
   // $ : it will select all the class attribute end with "col-"
-  [class^="col-"] { // attribute selector
-    // background-color: orangered; 
+  [class^="col-"] {
+    // attribute selector
+    // background-color: orangered;
     float: left;
 
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    @include respond(tab-port) {
+      width: 100% !important; // override the width of the column
     }
   }
 
@@ -37,13 +55,13 @@
       2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal}
     );
   }
-  
+
   .col-2-of-4 {
     width: calc(
       2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal}
     );
   }
-  
+
   .col-3-of-4 {
     width: calc(
       3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal}
