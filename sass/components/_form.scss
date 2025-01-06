@@ -18,6 +18,10 @@
     border-bottom: 3px solid transparent;
     background-color: rgba($color-white, 0.5);
 
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
     &:focus {
       outline: none;
       border-bottom: 3px solid $color-primary;
@@ -53,6 +57,12 @@
   &__radio-group {
     width: 49%;
     display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 2rem;
+    }
   }
 
   &__radio-input {
