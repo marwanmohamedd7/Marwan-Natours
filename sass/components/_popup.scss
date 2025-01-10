@@ -7,9 +7,19 @@
   z-index: 250;
   background-color: rgba($color-black, 0.8);
 
+  @supports (backdrop-filter: blur(10px)) or
+    ((-webkit-backdrop-filter: blur(10px))) {
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, 0.4);
+  }
+
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s;
+
+  @include clearfix;
 
   &__content {
     @include center_horizontal_vertical;
@@ -28,18 +38,31 @@
   &__left {
     width: 33.33333333%;
     display: table-cell;
+    @include respond(tab-land) {
+      width: 100%;
+      display: block;
+    }
   }
 
   &__right {
     width: 66.66666667%;
+    height: 100%;
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem;
+    @include respond(tab-land) {
+      width: 100%;
+      display: inline-block;
+    }
   }
 
   &__img {
     width: 100%;
     display: block;
+    @include respond(tab-land) {
+      width: 50%;
+      float: left;
+    }
   }
 
   &__text {

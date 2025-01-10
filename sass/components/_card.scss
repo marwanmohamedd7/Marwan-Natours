@@ -4,8 +4,8 @@
   position: relative;
 
   // perspective:  & -moz-perspective
-  perspective: 150rem;
   -moz-perspective: 150rem;
+  perspective: 150rem;
 
   &__side {
     width: 100%;
@@ -19,6 +19,7 @@
     top: 0;
     left: 0;
 
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 
     &--front {
@@ -204,7 +205,8 @@
   }
 
   ////////// Media Query
-  @include respond(tab-port) {
+  // @include respond(tab-port) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     // CARD FUNCTIONALITY
     height: auto;
     box-shadow: $box-shadow-sm;

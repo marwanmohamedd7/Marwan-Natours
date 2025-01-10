@@ -6,12 +6,54 @@
       rgba($color-primary-light, 0.8),
       rgba($color-primary-dark, 0.8)
     ),
-    url(../img/hero.jpg);
+    url(../img/hero-small.jpg);
   background-size: cover;
   background-position: top;
+
   /* polygon(x y, x y, x y, x y) position of all corners*/
   -webkit-clip-path: polygon(0 0, 100% 0, /* 100% 80%, */ 100% 75dvh, 0 100%);
   clip-path: polygon(0 0, 100% 0, /* 100% 80%, */ 100% 75dvh, 0 100%);
+
+  // @supports (-webkit-clip-path: polygon(0, 0)) or (clip-path: polygon(0, 0)) or
+  //   (-moz-clip-path: polygon(0, 0)) {
+  //   height: 95dvh;
+  //   /* polygon(x y, x y, x y, x y) position of all corners*/
+  //   -webkit-clip-path: polygon(0 0, 100% 0, /* 100% 80%, */ 100% 75dvh, 0 100%);
+  //   clip-path: polygon(0 0, 100% 0, /* 100% 80%, */ 100% 75dvh, 0 100%);
+  // }
+
+  // @supports not (
+  //   (clip-path: polygon(0, 0)) or (-webkit-clip-path: polygon(0, 0)) or
+  //     (-moz-clip-path: polygon(0, 0))
+  // ) {
+  //   height: 85dvh;
+  // }
+
+  /*
+  putting a comma after the last condition is basically saying "or" in sass,
+  so this will apply to the screen sizes that are convey either of the conditions,
+  without having to write them out or write another media query
+  */
+  // (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em)
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (min-width: 125em),
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url(../img/hero.jpg);
+  }
+
+  // @media (min-width: 125em) {
+  //   background-image: linear-gradient(
+  //       to right bottom,
+  //       rgba($color-primary-light, 0.8),
+  //       rgba($color-primary-dark, 0.8)
+  //     ),
+  //     url(../img/hero.jpg);
+  // }
 
   @include respond(phone) {
     -webkit-clip-path: polygon(0 0, 100% 0, /* 100% 80%, */ 100% 85dvh, 0 100%);

@@ -22,3 +22,9 @@
 @import "layout/navigation";
 
 @import "pages/home";
+
+/*
+This line defines a script to minify the CSS file using cssnano, creating a final optimized file (style.css).
+It should be included in the "scripts" section of your package.json file.
+// "minify:css": "cssnano -o css/style.css css/style.min.css",
+*/
